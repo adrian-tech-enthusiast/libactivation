@@ -144,6 +144,14 @@ static inline long double isigmoidl_derivative(long double x) {
  * provides the same hyperbolic tangent function, each being particularly
  * useful under different computational circumstances.
  *
+ * The derivative of the hyperbolic tangent (tanh) function can be expressed in
+ * multiple equivalent forms, each tailored to different contexts or
+ * computational requirements. Below is the standard and most commonly used
+ * expression for the derivative of tanh(x):
+ *
+ * 1. Standard Derivative Definition:
+ *    tanh'(x) = 1 - tanh²(x)
+ *
  * Note: We define the function as 'static inline' to enhance performance
  * and reduce execution time. This choice is made because the function is
  * lightweight and frequently utilized, allowing it to be seamlessly integrated
@@ -168,6 +176,20 @@ static inline double itanh(double x) {
 }
 
 /**
+ * Calculates the derivative of the tanh(x) function for the given double.
+ *
+ * @param double x
+ *   The double value.
+ *
+ * @return double
+ *   The derivative value of the tanh function for the given double.
+ */
+static inline double itanh_derivative(double x) {
+  double tanh = itanh(x);
+  return 1 - tanh * tanh;
+}
+
+/**
  * Calculate the tanh(x) value for a float.
  *
  * @param float x
@@ -181,6 +203,20 @@ static inline float itanhf(float x) {
 }
 
 /**
+ * Calculates the derivative of the tanh(x) function for the given float.
+ *
+ * @param float x
+ *   The float value.
+ *
+ * @return float
+ *   The derivative value of the tanh function for the given float.
+ */
+static inline float itanhf_derivative(float x) {
+  float tanhf = itanhf(x);
+  return 1 - tanhf * tanhf;
+}
+
+/**
  * Calculate the tanh(x) value for a long double.
  *
  * @param long double x
@@ -191,6 +227,20 @@ static inline float itanhf(float x) {
  */
 static inline long double itanhl(long double x) {
   return (expl(2 * x) - 1) / (expl(2 * x) + 1);
+}
+
+/**
+ * Calculates the derivative of the tanh(x) func for the given long double.
+ *
+ * @param long double x
+ *   The long double value.
+ *
+ * @return long double
+ *   The derivative value of the tanh function for the given long double.
+ */
+static inline long double itanhl_derivative(long double x) {
+  long double tanhl = itanhl(x);
+  return 1 - tanhl * tanhl;
 }
 
 #endif
