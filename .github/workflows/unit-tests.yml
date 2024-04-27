@@ -1,0 +1,35 @@
+name: Unit Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI_BRANCH: ${{ github.head_ref || github.ref_name }}
+  BASE_BRANCH: ${{ github.base_ref }}
+  PR_NUMBER: ${{ github.event.number }}
+
+jobs:
+  build:
+    name: Run Unit Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set ownership
+        run: |
+          chown -R $(id -u):$(id -g) $PWD
+
+      - name: Build the test app
+        run: |
+          ./build.sh
+
+      - name: Unit Testing Result
+        run: |
+          ./bin/libactivation.app
