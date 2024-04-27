@@ -28,9 +28,7 @@ jobs:
 
       - name: Build the test app
         run: |
-          pwd
-          ls
-          ./.github/workflows/build.sh
+          ./build.sh
 
       - name: Unit Testing Result
         run: |
