@@ -105,7 +105,7 @@ static inline long double isigmoidl_derivative(long double x) {
   return sigmoidl * (1 - sigmoidl);
 }
 
-#endif
+#endif /* SIGMOID_H */
 
 #ifndef TANH_H
 #define TANH_H
@@ -243,4 +243,120 @@ static inline long double itanhl_derivative(long double x) {
   return 1 - tanhl * tanhl;
 }
 
-#endif
+#endif /* TANH_H */
+
+#ifndef SOFTMAX_H
+#define SOFTMAX_H
+
+/**
+ * Softmax Function.
+ *
+ * The softmax function is a mathematical function that converts a vector of
+ * numerical values into a probability distribution. Each output value of the
+ * softmax function represents the probability that the corresponding input is
+ * the "most probable" given the entire set of inputs.
+ *
+ * The function exponentiates each input value, making larger inputs
+ * disproportionately larger, and then normalizes these values by dividing by
+ * the sum of all exponentiated values. This process ensures that the output
+ * values are in the range (0, 1) and sum up to 1, making them directly
+ * interpretable as probabilities.
+ *
+ * Softmax is commonly used in classification tasks in machine learning,
+ * particularly when the model needs to determine the likelihood of multiple
+ * categories.
+ *
+ * Note: We define the function as 'static inline' to enhance performance
+ * and reduce execution time. This choice is made because the function is
+ * lightweight and frequently utilized, allowing it to be seamlessly integrated
+ * into the code where it is invoked. Consequently, this approach minimizes the
+ * overhead typically incurred by function calls.
+ *
+ * @see https://en.wikipedia.org/wiki/Softmax_function
+ */
+
+/**
+ * Compute the softmax function for a vector of double values.
+ *
+ * @param double *x
+ *   The pointer to a vector with double values.
+ * @param int len
+ *   The vector length.
+ */
+static inline double isoftmax(double * x, int len) {
+  // Find the maximum value to avoid numerical issues during exponentiation.
+  double max = x[0];
+  for (int i = 1; i < len; i++) {
+    if (x[i] > max) {
+      max = x[i];
+    }
+  }
+  // Subtract the max and exponentiate.
+  double sum = 0.0;
+  for (int j = 0; j < len ; j++) {
+    x[j] = exp(x[j] - max);
+    sum += x[j];
+  }
+  // Normalize to get probabilities that sum to 1.
+  for (int k = 0; k < len ; k++) {
+    x[k] /= sum;
+  }
+}
+
+/**
+ * Compute the softmax function for a vector of float values.
+ *
+ * @param float *x
+ *   The pointor to a vector with float values.
+ * @param int len
+ *   The vector length.
+ */
+static inline float isoftmaxf(float * x, int len) {
+  // Find the maximum value to avoid numerical issues during exponentiation.
+  float max = x[0];
+  for (int i = 1; i < len; i++) {
+    if (x[i] > max) {
+      max = x[i];
+    }
+  }
+  // Subtract the max and exponentiate.
+  float sum = 0.0;
+  for (int j = 0; j < len ; j++) {
+    x[j] = expf(x[j] - max);
+    sum += x[j];
+  }
+  // Normalize to get probabilities that sum to 1.
+  for (int k = 0; k < len ; k++) {
+    x[k] /= sum;
+  }
+}
+
+/**
+ * Compute the softmax function for a vector of long double values.
+ *
+ * @param long double *x
+ *   The pointor to a vector with long double values.
+ * @param int len
+ *   The vector length.
+ */
+static inline long double isoftmaxl(long double * x, int len) {
+  // Find the maximum value to avoid numerical issues during exponentiation.
+  long double max = x[0];
+  for (int i = 1; i < len; i++) {
+    if (x[i] > max) {
+      max = x[i];
+    }
+  }
+  // Subtract the max and exponentiate.
+  long double sum = 0.0;
+  for (int j = 0; j < len ; j++) {
+    x[j] = expl(x[j] - max);
+    sum += x[j];
+  }
+  // Normalize to get probabilities that sum to 1.
+  for (int k = 0; k < len ; k++) {
+    x[k] /= sum;
+  }
+}
+
+#endif /* SOFTMAX_H */
