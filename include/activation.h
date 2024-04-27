@@ -6,15 +6,22 @@
 /**
  * Sigmoid Function.
  *
- * It transforms any value in the domain to a number between 0 and 1.
- * Definition: isigmoid(x) = 1/(1 + exp(-x)).
- * Note: We define the function as static inline to improve execution time.
+ * The Sigmoid function maps any value from its domain to a number within the
+ * range of 0 to 1.
+ *
+ * Definition: sigmoid(x) = 1 / (1 + exp(-x)).
+ *
+ * Note: We define the function as 'static inline' to enhance performance
+ * and reduce execution time. This choice is made because the function is
+ * lightweight and frequently utilized, allowing it to be seamlessly integrated
+ * into the code where it is invoked. Consequently, this approach minimizes the
+ * overhead typically incurred by function calls.
  *
  * @see https://en.wikipedia.org/wiki/Sigmoid_function
  */
 
 /**
- * Calculate the sigmoid value for a double.
+ * Calculate the sigmoid(x) value for a double.
  *
  * @param double x
  *   The double value.
@@ -23,11 +30,11 @@
  *   The sigmoid value.
  */
 static inline double isigmoid(double x) {
-   return 1 / (1 + exp(-x));
+  return 1 / (1 + exp(-x));
 }
 
 /**
- * Calculate the sigmoid value for a float.
+ * Calculate the sigmoid(x) value for a float.
  *
  * @param float x
  *   The float value.
@@ -36,11 +43,11 @@ static inline double isigmoid(double x) {
  *   The sigmoid value.
  */
 static inline float isigmoidf(float x) {
-   return 1 / (1 + expf(-x));
+  return 1 / (1 + expf(-x));
 }
 
 /**
- * Calculate the sigmoid value for a long double.
+ * Calculate the sigmoid(x) value for a long double.
  *
  * @param long double x
  *   The long double value.
@@ -49,7 +56,7 @@ static inline float isigmoidf(float x) {
  *   The sigmoid value.
  */
 static inline long double isigmoidl(long double x) {
-   return 1 / (1 + expl(-x));
+  return 1 / (1 + expl(-x));
 }
 
 #endif
@@ -64,19 +71,36 @@ static inline long double isigmoidl(long double x) {
  *
  * tanh(x) is a nonlinear activation function, with its center at 0 and
  * its value ranging between –1 to 1.
- * 
- * tanh(x) can be expressed in numerous ways depending on the need, it can be defined using the exponential function in several slightly different but equivalent forms. Here are three common representations:
- * 
- * 1. Basic Exponential Definition: itanh(x) = (exp(x) - exp(-x)) / exp(x) + exp(-x)).
- * 2. Symmetric Form Definition:    itanh(x) = (1- exp(-2*x)) / (1 - exp(-2*x)).
- * 3. Alternate Symmetric Form:     itanh(x) = (exp(2*x) - 1) / (exp(2*x) + 1).
- * 
- * The form #2 is particularly useful for computing tanh(x) for large negative x values because it avoids large exponential values that could lead to numerical overflow.
- * The form #3 is beneficial for computing tanh(x) for large positive x values, mitigating issues with numerical underflow that might occur when x is negative and large in magnitude.
- * 
- * These three forms showcase the flexibility in representing the hyperbolic tangent function using exponential functions, each of these expressions provides the same hyperbolic tangent function, each being particularly useful under different computational circumstances.
- * 
- * Note: We define the function as static inline to improve execution time.
+ *
+ * tanh(x) can be expressed in numerous ways depending on the need, it can be
+ * defined using the exponential function in several slightly different but
+ * equivalent forms. Here are three common representations:
+ *
+ * 1. Basic Exponential Definition:
+ *    tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))
+ *
+ * 2. Symmetric Form Definition:
+ *    tanh(x) = (1- exp(-2*x)) / (1 - exp(-2*x))
+ *
+ * 3. Alternate Symmetric Form:
+ *    tanh(x) = (exp(2*x) - 1) / (exp(2*x) + 1).
+ *
+ * The form #2 is particularly useful for computing tanh(x) for large negative
+ * x values because it avoids large exponential values that could lead to
+ * numerical overflow. The form #3 is beneficial for computing tanh(x) for
+ * large positive x values, mitigating issues with numerical underflow that
+ * might occur when x is negative and large in magnitude.
+ *
+ * These three forms showcase the flexibility in representing the hyperbolic
+ * tangent function using exponential functions, each of these expressions
+ * provides the same hyperbolic tangent function, each being particularly
+ * useful under different computational circumstances.
+ *
+ * Note: We define the function as 'static inline' to enhance performance
+ * and reduce execution time. This choice is made because the function is
+ * lightweight and frequently utilized, allowing it to be seamlessly integrated
+ * into the code where it is invoked. Consequently, this approach minimizes the
+ * overhead typically incurred by function calls.
  *
  * @see https://en.wikipedia.org/wiki/Hyperbolic_functions
  * @see https://www.mathworks.com/help/matlab/ref/tanh.html#bt7lj8r-3
@@ -92,7 +116,7 @@ static inline long double isigmoidl(long double x) {
  *   The tanh value.
  */
 static inline double itanh(double x) {
-   return (exp(2 * x) - 1) / (exp(2 * x) + 1);
+  return (exp(2 * x) - 1) / (exp(2 * x) + 1);
 }
 
 /**
@@ -105,7 +129,7 @@ static inline double itanh(double x) {
  *   The tanh value.
  */
 static inline float itanhf(float x) {
-   return (expf(2 * x) - 1) / (expf(2 * x) + 1);
+  return (expf(2 * x) - 1) / (expf(2 * x) + 1);
 }
 
 /**
@@ -118,7 +142,7 @@ static inline float itanhf(float x) {
  *   The tanh value.
  */
 static inline long double itanhl(long double x) {
-   return (expl(2 * x) - 1) / (expl(2 * x) + 1);
+  return (expl(2 * x) - 1) / (expl(2 * x) + 1);
 }
 
 #endif
