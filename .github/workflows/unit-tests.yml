@@ -30,7 +30,7 @@ jobs:
         run: pwd
 
       - name: Where I am
-        run: ls -lh
+        run: ls -lh ..
 
       - name: Build the test app
         run: |
