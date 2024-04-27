@@ -26,6 +26,12 @@ jobs:
         run: |
           chown -R $(id -u):$(id -g) $PWD
 
+      - name: Where I am
+        run: pwd
+
+      - name: Where I am
+        run: ls
+
       - name: Build the test app
         run: |
           .ci/build.sh
