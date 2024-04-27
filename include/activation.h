@@ -283,7 +283,7 @@ static inline long double itanhl_derivative(long double x) {
  * @param int len
  *   The vector length.
  */
-static inline double isoftmax(double * x, int len) {
+static inline double *isoftmax(double *x, int len) {
   // Find the maximum value to avoid numerical issues during exponentiation.
   double max = x[0];
   for (int i = 1; i < len; i++) {
@@ -301,6 +301,7 @@ static inline double isoftmax(double * x, int len) {
   for (int k = 0; k < len ; k++) {
     x[k] /= sum;
   }
+  return x;
 }
 
 /**
@@ -311,7 +312,7 @@ static inline double isoftmax(double * x, int len) {
  * @param int len
  *   The vector length.
  */
-static inline float isoftmaxf(float * x, int len) {
+static inline float *isoftmaxf(float *x, int len) {
   // Find the maximum value to avoid numerical issues during exponentiation.
   float max = x[0];
   for (int i = 1; i < len; i++) {
@@ -329,6 +330,7 @@ static inline float isoftmaxf(float * x, int len) {
   for (int k = 0; k < len ; k++) {
     x[k] /= sum;
   }
+  return x;
 }
 
 /**
@@ -339,7 +341,7 @@ static inline float isoftmaxf(float * x, int len) {
  * @param int len
  *   The vector length.
  */
-static inline long double isoftmaxl(long double * x, int len) {
+static inline long double *isoftmaxl(long double *x, int len) {
   // Find the maximum value to avoid numerical issues during exponentiation.
   long double max = x[0];
   for (int i = 1; i < len; i++) {
@@ -357,6 +359,7 @@ static inline long double isoftmaxl(long double * x, int len) {
   for (int k = 0; k < len ; k++) {
     x[k] /= sum;
   }
+  return x;
 }
 
 #endif /* SOFTMAX_H */
