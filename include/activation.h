@@ -360,3 +360,69 @@ static inline long double isoftmaxl(long double * x, int len) {
 }
 
 #endif /* SOFTMAX_H */
+
+#ifndef RELU_H
+#define RELU_H
+
+/**
+ * Rectified Linear Unit (ReLU) function.
+ *
+ * This function simply sets all negative values to zero and outputs the input
+ * directly for all non-negative values.
+ *
+ * 1. Definition:
+ *    ReLU(x) = max(0, x)
+ *
+ * The formula indicates that if the input x is less than zero, the output will
+ * be zero, and if x is greater than or equal to zero, the output will be x
+ * itself.
+ *
+ * Note: We define the function as 'static inline' to enhance performance
+ * and reduce execution time. This choice is made because the function is
+ * lightweight and frequently utilized, allowing it to be seamlessly integrated
+ * into the code where it is invoked. Consequently, this approach minimizes the
+ * overhead typically incurred by function calls.
+ *
+ * @see https://en.wikipedia.org/wiki/Rectifier_(neural_networks)
+ */
+
+/**
+ * Compute the ReLU(x) function value for a given double.
+ *
+ * @param double x
+ *   The double value.
+ *
+ * @return double
+ *   The ReLU value.
+ */
+static inline double irelu(double x) {
+  return (x > 0) ? x : 0;
+}
+
+/**
+ * Compute the ReLU(x) function value for a given float.
+ *
+ * @param float x
+ *   The float value.
+ *
+ * @return float
+ *   The ReLU value.
+ */
+static inline float ireluf(float x) {
+  return (x > 0) ? x : 0;
+}
+
+/**
+ * Compute the ReLU(x) function value for a given long double.
+ *
+ * @param long double x
+ *   The long double value.
+ *
+ * @return long double
+ *   The ReLU value.
+ */
+static inline long double irelul(long double x) {
+  return (x > 0) ? x : 0;
+}
+
+#endif /* RELU_H */
