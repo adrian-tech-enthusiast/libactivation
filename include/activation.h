@@ -9,7 +9,7 @@
  * The Sigmoid function maps any value from its domain to a number within the
  * range of 0 to 1.
  *
- * Definition: sigmoid(x) = 1 / (1 + exp(-x)).
+ * Definition: sigmoid(x) = 1 / (1 + exp(-x))
  *
  * Note: We define the function as 'static inline' to enhance performance
  * and reduce execution time. This choice is made because the function is
@@ -83,11 +83,13 @@ static inline long double isigmoidl(long double x) {
  *    tanh(x) = (1- exp(-2*x)) / (1 - exp(-2*x))
  *
  * 3. Alternate Symmetric Form:
- *    tanh(x) = (exp(2*x) - 1) / (exp(2*x) + 1).
+ *    tanh(x) = (exp(2*x) - 1) / (exp(2*x) + 1)
  *
  * The form #2 is particularly useful for computing tanh(x) for large negative
  * x values because it avoids large exponential values that could lead to
- * numerical overflow. The form #3 is beneficial for computing tanh(x) for
+ * numerical overflow.
+ *
+ * The form #3 is beneficial for computing tanh(x) for
  * large positive x values, mitigating issues with numerical underflow that
  * might occur when x is negative and large in magnitude.
  *
