@@ -9,7 +9,11 @@
  * The Sigmoid function maps any value from its domain to a number within the
  * range of 0 to 1.
  *
- * Definition: sigmoid(x) = 1 / (1 + exp(-x))
+ * 1. Definition:
+ *    sigmoid(x) = 1 / (1 + exp(-x))
+ *
+ * 2. Derivative Definition:
+ *    sigmoid'(x) = sigmoid(x) * (1 - sigmoid(x))
  *
  * Note: We define the function as 'static inline' to enhance performance
  * and reduce execution time. This choice is made because the function is
@@ -34,6 +38,20 @@ static inline double isigmoid(double x) {
 }
 
 /**
+ * Calculates the derivative of the sigmoid(x) function for the given double.
+ *
+ * @param double x
+ *   The double value.
+ *
+ * @return double
+ *   The derivative value of the sigmoid function for the given double.
+ */
+static inline double isigmoid_derivative(double x) {
+  double sigmoid = isigmoid(x);
+  return sigmoid * (1 - sigmoid);
+}
+
+/**
  * Calculate the sigmoid(x) value for a float.
  *
  * @param float x
@@ -47,6 +65,20 @@ static inline float isigmoidf(float x) {
 }
 
 /**
+ * Calculates the derivative of the sigmoid(x) function for the given float.
+ *
+ * @param float x
+ *   The float value.
+ *
+ * @return float
+ *   The derivative value of the sigmoid function for the given float.
+ */
+static inline float isigmoidf_derivative(float x) {
+  float sigmoidf = isigmoidf(x);
+  return sigmoidf * (1 - sigmoidf);
+}
+
+/**
  * Calculate the sigmoid(x) value for a long double.
  *
  * @param long double x
@@ -57,6 +89,20 @@ static inline float isigmoidf(float x) {
  */
 static inline long double isigmoidl(long double x) {
   return 1 / (1 + expl(-x));
+}
+
+/**
+ * Calculates the derivative of the sigmoid(x) func for the given long double.
+ *
+ * @param long double x
+ *   The long double value.
+ *
+ * @return long double
+ *   The derivative value of the sigmoid function for the given long double.
+ */
+static inline long double isigmoidl_derivative(long double x) {
+  long double sigmoidl = isigmoidl(x);
+  return sigmoidl * (1 - sigmoidl);
 }
 
 #endif
