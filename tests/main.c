@@ -19,6 +19,6 @@ int main(int argc, char const *argv[])
       // Unit tests failed.
       return EXIT_FAILURE;
    }
-   // Return success response.
+   // Unit tests succeeded.
    return EXIT_SUCCESS;
 }

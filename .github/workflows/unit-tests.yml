@@ -31,7 +31,7 @@ jobs:
 
       - name: Build the test app
         run: |
-          .ci/build.sh
+          .github/build.sh
 
       - name: Unit Testing Result
         run: |

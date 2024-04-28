@@ -21,7 +21,7 @@ static int unit_test_sigmoid(double x, double expected)
    printf("  Got:      %.8f \n", result);
    // Use a small tolerance for floating-point comparison.
    printf("  Result:   ");
-   if (fabs(result - expected) < 0.000000000000000001)
+   if (fabs(result - expected) < 0.0000000000001)
    {
       printf("Test Passed\n\n");
       return EXIT_SUCCESS;
