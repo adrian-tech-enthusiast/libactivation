@@ -293,12 +293,12 @@ static inline double *isoftmax(double *x, int len) {
   }
   // Subtract the max and exponentiate.
   double sum = 0.0;
-  for (int j = 0; j < len ; j++) {
+  for (int j = 0; j < len; j++) {
     x[j] = exp(x[j] - max);
     sum += x[j];
   }
   // Normalize to get probabilities that sum to 1.
-  for (int k = 0; k < len ; k++) {
+  for (int k = 0; k < len; k++) {
     x[k] /= sum;
   }
   return x;
@@ -322,12 +322,12 @@ static inline float *isoftmaxf(float *x, int len) {
   }
   // Subtract the max and exponentiate.
   float sum = 0.0;
-  for (int j = 0; j < len ; j++) {
+  for (int j = 0; j < len; j++) {
     x[j] = expf(x[j] - max);
     sum += x[j];
   }
   // Normalize to get probabilities that sum to 1.
-  for (int k = 0; k < len ; k++) {
+  for (int k = 0; k < len; k++) {
     x[k] /= sum;
   }
   return x;
@@ -351,12 +351,12 @@ static inline long double *isoftmaxl(long double *x, int len) {
   }
   // Subtract the max and exponentiate.
   long double sum = 0.0;
-  for (int j = 0; j < len ; j++) {
+  for (int j = 0; j < len; j++) {
     x[j] = expl(x[j] - max);
     sum += x[j];
   }
   // Normalize to get probabilities that sum to 1.
-  for (int k = 0; k < len ; k++) {
+  for (int k = 0; k < len; k++) {
     x[k] /= sum;
   }
   return x;

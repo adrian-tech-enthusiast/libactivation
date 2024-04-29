@@ -12,13 +12,11 @@
  * @return int
  *   The constant that represent the exit status.
  */
-int main(int argc, char const *argv[])
-{
-   if (run_sigmoid_unit_tests() == EXIT_FAILURE)
-   {
-      // Unit tests failed.
-      return EXIT_FAILURE;
-   }
-   // Unit tests succeeded.
-   return EXIT_SUCCESS;
+int main(int argc, char const *argv[]) {
+  if (run_sigmoid_unit_tests() == EXIT_FAILURE) {
+    // Unit tests failed.
+    return EXIT_FAILURE;
+  }
+  // Unit tests succeeded.
+  return EXIT_SUCCESS;
 }
