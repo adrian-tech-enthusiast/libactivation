@@ -19,6 +19,36 @@ static int unit_test_isigmoid(double x, double expected) {
 }
 
 /**
+ * Unit testing for the isigmoidf(x) function.
+ *
+ * @param float x
+ *   The float value.
+ * @param float expected
+ *   The expected float value.
+ *
+ * @return int
+ *   The constant that represent the test exit status.
+ */
+static int unit_test_isigmoidf(float x, float expected) {
+  return unit_test_callbackf(x, expected, "isigmoidf", isigmoidf);
+}
+
+/**
+ * Unit testing for the isigmoidl(x) function.
+ *
+ * @param long double x
+ *   The long double value.
+ * @param long double expected
+ *   The expected long double value.
+ *
+ * @return int
+ *   The constant that represent the test exit status.
+ */
+static int unit_test_isigmoidl(long double x, long double expected) {
+  return unit_test_callbackl(x, expected, "isigmoidl", isigmoidl);
+}
+
+/**
  * Unit testing for the isigmoid_derivative(x) function.
  *
  * @param double x
@@ -39,7 +69,7 @@ static int unit_test_isigmoid_derivative(double x, double expected) {
 int run_sigmoid_unit_tests() {
   printf("Testing the Sigmoid functions:\n");
   printf("------------------------------\n");
-  double inputs_a[][2] = {
+  long double inputs_a[][2] = {
       // Sigmoid(0) should be 0.5.
       {0.0, 0.5},
       // Sigmoid(1) approx 0.7311.
@@ -52,7 +82,13 @@ int run_sigmoid_unit_tests() {
       {-10.0, 0.0000453978687022},
   };
   for (int i = 0; i < 5; i++) {
-    if (unit_test_isigmoid(inputs_a[i][0], inputs_a[i][1]) == EXIT_FAILURE) {
+    if (unit_test_isigmoidl(inputs_a[i][0], inputs_a[i][1]) == EXIT_FAILURE) {
+      return EXIT_FAILURE;
+    }
+    if (unit_test_isigmoidf((float)inputs_a[i][0], (float)inputs_a[i][1]) == EXIT_FAILURE) {
+      return EXIT_FAILURE;
+    }
+    if (unit_test_isigmoid((double)inputs_a[i][0], (double)inputs_a[i][1]) == EXIT_FAILURE) {
       return EXIT_FAILURE;
     }
   }
