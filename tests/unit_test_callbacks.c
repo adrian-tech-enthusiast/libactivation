@@ -32,7 +32,7 @@ int unit_test_callbackf(float input, float expected_output, const char *callback
   printf("  Got:      %.11f \n", result);
   // Use a small tolerance for floating-point comparison.
   printf("  Result:   ");
-  if (fabs(result - expected_output) < 0.00000000001) {
+  if (fabs(result - expected_output) < 0.0000001) {
     printf("Test Passed\n\n");
     return EXIT_SUCCESS;
   } else {

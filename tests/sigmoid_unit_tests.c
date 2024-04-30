@@ -64,6 +64,36 @@ static int unit_test_isigmoid_derivative(double x, double expected) {
 }
 
 /**
+ * Unit testing for the isigmoidf_derivative(x) function.
+ *
+ * @param float x
+ *   The float value.
+ * @param float expected
+ *   The expected float value.
+ *
+ * @return int
+ *   The constant that represent the test exit status.
+ */
+static int unit_test_isigmoidf_derivative(float x, float expected) {
+  return unit_test_callbackf(x, expected, "isigmoidf_derivative", isigmoidf_derivative);
+}
+
+/**
+ * Unit testing for the isigmoidl_derivative(x) function.
+ *
+ * @param long double x
+ *   The long double value.
+ * @param long double expected
+ *   The expected long double value.
+ *
+ * @return int
+ *   The constant that represent the test exit status.
+ */
+static int unit_test_isigmoidl_derivative(long double x, long double expected) {
+  return unit_test_callbackl(x, expected, "isigmoidl_derivative", isigmoidl_derivative);
+}
+
+/**
  * {@inheritdoc}
  */
 int run_sigmoid_unit_tests() {
@@ -106,6 +136,12 @@ int run_sigmoid_unit_tests() {
       {2.0, 0.1049935854035065},
   };
   for (int j = 0; j < 5; j++) {
+    if (unit_test_isigmoidl_derivative(inputs_b[j][0], inputs_b[j][1]) == EXIT_FAILURE) {
+      return EXIT_FAILURE;
+    }
+    if (unit_test_isigmoidf_derivative((float)inputs_b[j][0], (float)inputs_b[j][1]) == EXIT_FAILURE) {
+      return EXIT_FAILURE;
+    }
     if (unit_test_isigmoid_derivative(inputs_b[j][0], inputs_b[j][1]) == EXIT_FAILURE) {
       return EXIT_FAILURE;
     }
