@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "sigmoid_unit_tests.h"
 #include "tanh_unit_tests.h"
+#include "relu_unit_tests.h"
 
 /**
  * Main Unit Testing controller function.
@@ -19,6 +20,10 @@ int main(int argc, char const *argv[]) {
     return EXIT_FAILURE;
   }
   if (run_tanh_unit_tests() == EXIT_FAILURE) {
+    // Unit tests failed.
+    return EXIT_FAILURE;
+  }
+  if (run_relu_unit_tests() == EXIT_FAILURE) {
     // Unit tests failed.
     return EXIT_FAILURE;
   }
