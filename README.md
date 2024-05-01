@@ -13,6 +13,7 @@ performance and ease of use.
   ReLU, and more, each optimized for high performance.
 - **Optimized for Speed**: Carefully optimized C code to ensure maximum performance, crucial for training and deploying
   neural networks.
+- **Extensive Unit Testing:** Unit tests are provided for each activation function to ensure correctness and reliability. These tests cover a variety of input scenarios to validate the behavior of the functions.
 - **Easy Integration**: Designed with simplicity in mind, `Lib Activation` can be easily integrated into existing neural
   network projects or used in new developments.
 - **Cross-Platform Compatibility**: Compatible with various operating systems, ensuring flexibility across different
