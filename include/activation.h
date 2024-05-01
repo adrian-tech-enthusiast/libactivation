@@ -280,10 +280,15 @@ static inline long double itanhl_derivative(long double x) {
  *
  * @param double *x
  *   The pointer to a vector with double values.
+ * @param double *output
+ *   The pointer to the vector where the output result will be stored.
  * @param int len
  *   The vector length.
+ *
+ * @return double*
+ *   The output result vector.
  */
-static inline double *isoftmax(double *x, int len) {
+static inline double *isoftmax(double *x, double *output, int len) {
   // Find the maximum value to avoid numerical issues during exponentiation.
   double max = x[0];
   for (int i = 1; i < len; i++) {
@@ -294,14 +299,14 @@ static inline double *isoftmax(double *x, int len) {
   // Subtract the max and exponentiate.
   double sum = 0.0;
   for (int j = 0; j < len; j++) {
-    x[j] = exp(x[j] - max);
-    sum += x[j];
+    output[j] = exp(x[j] - max);
+    sum += output[j];
   }
   // Normalize to get probabilities that sum to 1.
   for (int k = 0; k < len; k++) {
-    x[k] /= sum;
+    output[k] /= sum;
   }
-  return x;
+  return output;
 }
 
 /**
@@ -309,10 +314,15 @@ static inline double *isoftmax(double *x, int len) {
  *
  * @param float *x
  *   The pointor to a vector with float values.
+ * @param float *output
+ *   The pointer to the vector where the output result will be stored.
  * @param int len
  *   The vector length.
+ *
+ * @return float*
+ *   The output result vector.
  */
-static inline float *isoftmaxf(float *x, int len) {
+static inline float *isoftmaxf(float *x, float *output, int len) {
   // Find the maximum value to avoid numerical issues during exponentiation.
   float max = x[0];
   for (int i = 1; i < len; i++) {
@@ -323,14 +333,14 @@ static inline float *isoftmaxf(float *x, int len) {
   // Subtract the max and exponentiate.
   float sum = 0.0;
   for (int j = 0; j < len; j++) {
-    x[j] = expf(x[j] - max);
-    sum += x[j];
+    output[j] = expf(x[j] - max);
+    sum += output[j];
   }
   // Normalize to get probabilities that sum to 1.
   for (int k = 0; k < len; k++) {
-    x[k] /= sum;
+    output[k] /= sum;
   }
-  return x;
+  return output;
 }
 
 /**
@@ -338,10 +348,15 @@ static inline float *isoftmaxf(float *x, int len) {
  *
  * @param long double *x
  *   The pointor to a vector with long double values.
+ * @param long double *output
+ *   The pointer to the vector where the output result will be stored.
  * @param int len
  *   The vector length.
+ *
+ * @return long double*
+ *   The output result vector.
  */
-static inline long double *isoftmaxl(long double *x, int len) {
+static inline long double *isoftmaxl(long double *x, long double *output, int len) {
   // Find the maximum value to avoid numerical issues during exponentiation.
   long double max = x[0];
   for (int i = 1; i < len; i++) {
@@ -352,14 +367,14 @@ static inline long double *isoftmaxl(long double *x, int len) {
   // Subtract the max and exponentiate.
   long double sum = 0.0;
   for (int j = 0; j < len; j++) {
-    x[j] = expl(x[j] - max);
-    sum += x[j];
+    output[j] = expl(x[j] - max);
+    sum += output[j];
   }
   // Normalize to get probabilities that sum to 1.
   for (int k = 0; k < len; k++) {
-    x[k] /= sum;
+    output[k] /= sum;
   }
-  return x;
+  return output;
 }
 
 #endif /* SOFTMAX_H */
