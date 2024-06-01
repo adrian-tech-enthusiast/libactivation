@@ -10,7 +10,7 @@ performance and ease of use.
 ## Key Features
 
 - **Comprehensive Activation Functions**: Includes a variety of activation functions such as Sigmoid, ReLU, Tanh, Leaky
-  ReLU, and more, each optimized for high performance.
+  ReLU, Identity, and more, each optimized for high performance.
 - **Optimized for Speed**: Carefully optimized C code to ensure maximum performance, crucial for training and deploying
   neural networks.
 - **Extensive Unit Testing:** Unit tests are provided for each activation function to ensure correctness and reliability. These tests cover a variety of input scenarios to validate the behavior of the functions.
