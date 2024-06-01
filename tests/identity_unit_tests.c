@@ -72,7 +72,7 @@ int run_identity_unit_tests() {
       // Identity(-1000) expected to be -1000.
       {-1000.0, -1000.0},
   };
-  for (int i = 0; i < 7; i++) {
+  for (int i = 0; i <= 7; i++) {
     if (unit_test_identityl(inputs_a[i][0], inputs_a[i][1]) == EXIT_FAILURE) {
       return EXIT_FAILURE;
     }
