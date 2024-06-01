@@ -44,13 +44,13 @@ its [official Github repository](https://github.com/adrian-tech-enthusiast/libac
 
 First, confirm the latest version available in
 their [releases page](https://github.com/adrian-tech-enthusiast/libactivation/releases). At the time of this writing,
-the most current stable version is `1.0.0`.
+the most current stable version is `1.0.1`.
 
-1. The following command will download the `1.0.0` release and save the shared library file at
+1. The following command will download the `1.0.1` release and save the shared library file at
    /usr/local/lib/libactivation.so, which will make this library globally accessible to clients:
 
     ```bash
-    sudo curl -L "https://github.com/adrian-tech-enthusiast/libactivation/releases/download/v1.0.0/libactivation.so" -o /usr/local/lib/libactivation.so
+    sudo curl -L "https://github.com/adrian-tech-enthusiast/libactivation/releases/download/v1.0.1/libactivation.so" -o /usr/local/lib/libactivation.so
     ```
 
 2. Next, We need to tell the loader it is available for use, so let us update the cache, invoke the `ldconfig` utility,
@@ -72,7 +72,7 @@ the most current stable version is `1.0.0`.
    Typical locations are `/usr/include` and `/usr/local/include`;
 
     ```bash
-    sudo curl -L "https://raw.githubusercontent.com/adrian-tech-enthusiast/libactivation/v1.0.0/include/activation.h" -o /usr/local/include/activation.h;
+    sudo curl -L "https://raw.githubusercontent.com/adrian-tech-enthusiast/libactivation/v1.0.1/include/activation.h" -o /usr/local/include/activation.h;
     ```
 
    This allows the library header file to be included in your C project as follows:
@@ -116,7 +116,7 @@ int main() {
     double input = 0.5; // Example input
     double output;
 
-    output = sigmoid(input);
+    output = isigmoid(input);
     printf("Sigmoid Activation Output: %f\n", output);
 
     return 0;
@@ -135,7 +135,7 @@ int main() {
     double input = -0.5; // Example input
     double output;
 
-    output = relu(input);
+    output = irelu(input);
     printf("ReLU Activation Output: %f\n", output);
 
     return 0;
@@ -147,10 +147,10 @@ int main() {
 To compile your program, you might use a command like this, depending on your setup:
 
 ```bash
-gcc -o my_neural_network my_neural_network.c -lactivc
+gcc -o my_neural_network my_neural_network.c -lactivation
 ```
 
-Replace `my_neural_network.c` with the name of your source file. Make sure that the activc library is correctly linked.
+Replace `my_neural_network.c` with the name of your source file. Make sure that the activation library is correctly linked.
 
 #### Additional Tips
 
