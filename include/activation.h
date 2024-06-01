@@ -444,3 +444,66 @@ static inline long double irelul(long double x) {
 }
 
 #endif /* RELU_H */
+
+#ifndef IDENTITY_H
+#define IDENTITY_H
+
+/**
+ * The identity function.
+ *
+ * A math function where the input is returned as the same output is called the
+ * identity function. The identity function is typically denoted as f(x)=x.
+ * For any input x, the output is exactly x. This function essentially maps
+ * every element in its domain to itself.
+ *
+ *
+ * 1. Definition:
+ *    identity(x) = x
+ *
+ * Note: We define the function as 'static inline' to enhance performance
+ * and reduce execution time. This choice is made because the function is
+ * lightweight and frequently utilized, allowing it to be seamlessly integrated
+ * into the code where it is invoked. Consequently, this approach minimizes the
+ * overhead typically incurred by function calls.
+ */
+
+/**
+ * Calculate the identity(x) value for a double.
+ *
+ * @param double x
+ *   The double value.
+ *
+ * @return double
+ *   The identity value.
+ */
+static inline double identity(double x) {
+  return x;
+}
+
+/**
+ * Calculate the identityf(x) value for a float.
+ *
+ * @param float x
+ *   The float value.
+ *
+ * @return float
+ *   The identity value.
+ */
+static inline float identityf(float x) {
+  return x;
+}
+
+/**
+ * Calculate the identityl(x) value for a long double.
+ *
+ * @param long double x
+ *   The long double value.
+ *
+ * @return long double
+ *   The identity value.
+ */
+static inline long double identityl(long double x) {
+  return x;
+}
+
+#endif /* IDENTITY_H */
